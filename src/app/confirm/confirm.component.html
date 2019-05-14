@@ -1,0 +1,12 @@
+<mat-card *ngFor="let list of order">
+  <mat-card-content style="display:inline-flex;">
+    <div>
+      <h2>Vuelo: {{list.id}}</h2>
+      <h2>Origen: {{list.origen}}</h2>
+      <h2>Destino: {{list.destino}}</h2>
+      <h2>Aerolinea: {{list.aerolinea}}</h2>
+      <h2>Capacidad: {{list.capacidad}}</h2>
+    </div>
+  </mat-card-content>
+</mat-card>
+<button mat-stroked-button style="display:flex;justify-content:center">Confirmar compra</button>
