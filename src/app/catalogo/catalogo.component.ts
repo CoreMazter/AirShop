@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalogo',
@@ -8,43 +9,47 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar) { }
+  url="http://192.168.84.200:6543";
+  flights:any;
+
+  constructor(private snackBar: MatSnackBar,private fly:HttpClient) { }
 
   ngOnInit() {
+    this.flights=this.fly.get(this.url+"/vuelos");
     console.log(this.flights);
   }
 
-  flights:any[]=[
-    {
-      id:1,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:2,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:3,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:4,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
+  // flights:any[]=[
+  //   {
+  //     id:1,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:2,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:3,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:4,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
     
-  ];
+  // ];
 
 
 comprar(i){
@@ -59,9 +64,9 @@ comprar(i){
   if(carrito.length>0){
 
     carrito.forEach(element => {
-      console.log(f.id);
-      console.log(element.id);
-      if(f.id==element.id){
+      console.log(f.id_v);
+      console.log(element.id_v);
+      if(f.id_v==element.id_v){
         cont++;
       }
     });

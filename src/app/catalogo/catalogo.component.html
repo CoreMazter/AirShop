@@ -1,5 +1,5 @@
 <h1>catalogo de vuelos</h1>
-<mat-card *ngFor="let flight of flights; index as i" class="example-card">
+<mat-card *ngFor="let flight of flights | async; index as i" class="example-card">
     <mat-card-header>
       <mat-card-title>{{flight.aerolinea}}</mat-card-title>
       <mat-card-subtitle>{{flight.origen}}</mat-card-subtitle>
