@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -23,6 +23,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     LoginComponent,
     CatalogoComponent,
     NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
