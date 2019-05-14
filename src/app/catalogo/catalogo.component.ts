@@ -7,7 +7,8 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./catalogo.component.scss']
 })
 export class CatalogoComponent implements OnInit {
-
+  bOrigen;
+  bDestino;
   constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -45,7 +46,16 @@ export class CatalogoComponent implements OnInit {
     },
     
   ];
-
+  buscar(){
+    let aux=this.flights;
+    this.flights=[];
+    aux.forEach(flight => {
+      if(flight.origen==this.bOrigen&&this.bDestino==flight.destino){
+        this.flights.push(flight);
+      }
+    });
+    console.log(this.flights);
+  }
 
 comprar(i){
   let cont=0;
