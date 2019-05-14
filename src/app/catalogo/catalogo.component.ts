@@ -9,8 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CatalogoComponent implements OnInit {
 
-  url="http://192.168.84.200:6543";
-  flights:any;
+  url="http://192.168.43.27:6543";
+  flights=[];
+  fflights=[];
   bOrigen;
   bDestino;
 
@@ -57,14 +58,27 @@ export class CatalogoComponent implements OnInit {
 
   
   buscar(){
-    let aux=this.flights;
+    if(this.fflights.length<this.flights.length)
+    this.fflights=this.flights;
     this.flights=[];
-    aux.forEach(flight => {
+    this.fflights.forEach(flight => {
       if(flight.origen==this.bOrigen&&this.bDestino==flight.destino){
         this.flights.push(flight);
       }
     });
     console.log(this.flights);
+    if((this.flights.length==0)){
+      this.fflights.forEach(flight1 => {
+        this.fflights.forEach(flight2 => {
+          if(flight1!=flight2)
+            if(flight1.origen==this.bOrigen&&
+              flight1.destino==flight2.origen&&
+              flight2.destino==this.bDestino){
+              this.flights.push(flight1);
+              this.flights.push(flight2);}
+        });
+      });
+    }
   }
 
 comprar(i){
