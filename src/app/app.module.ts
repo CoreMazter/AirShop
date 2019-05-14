@@ -9,6 +9,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +23,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatSnackBarModule,
     FormsModule,
     AppRoutingModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
