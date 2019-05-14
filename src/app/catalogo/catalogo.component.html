@@ -1,4 +1,23 @@
 <h1>catalogo de vuelos</h1>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>BUSCAR</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Origen" [(ngModel)]="bOrigen" name="origne" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Destino" [(ngModel)]="bDestino" name="destino" required>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="buscar()" color="primary">Buscar</button>
+  </mat-card-actions>
+</mat-card>
+
 <mat-card *ngFor="let flight of flights; index as i" class="example-card">
     <mat-card-header>
       <mat-card-title>{{flight.aerolinea}}</mat-card-title>
