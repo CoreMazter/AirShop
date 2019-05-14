@@ -1,4 +1,13 @@
 <mat-toolbar class="flex">
   <h1>AirShop</h1>
-  <button *ngIf="sesionIniciada==true" (click)="logOut()" mat-button>log out</button>
+  <div *ngIf="sesionIniciada == true; then iniciada else noIniciada"></div>
+  <ng-template #iniciada>
+      <button  (click)="logOut()" mat-button>log out</button>
+      <button  routerLink="/profile" mat-button>perfil</button>
+  </ng-template>
+
+  <ng-template #noIniciada>
+      
+  </ng-template>
+  
 </mat-toolbar>

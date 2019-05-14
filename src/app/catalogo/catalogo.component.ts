@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalogo',
@@ -8,44 +9,63 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar) { }
+  url="http://192.168.84.200:6543";
+  flights:any;
+  bOrigen;
+  bDestino;
 
-  ngOnInit() {
+
+  constructor(private snackBar: MatSnackBar,private fly:HttpClient) { 
+    this.fly.get(this.url+"/vuelos").subscribe(data=>{this.flights=data;console.log(this.flights)});
     console.log(this.flights);
   }
 
-  flights:any[]=[
-    {
-      id:1,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:2,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:3,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    {
-      id:4,
-      aerolinea:"aeromexico",
-      origen:"origen",
-      destino:"destino",
-      capacidad:40
-    },
-    
-  ];
+  ngOnInit() {
+  }
 
+  // flights:any[]=[
+  //   {
+  //     id:1,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:2,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:3,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+  //   {
+  //     id:4,
+  //     aerolinea:"aeromexico",
+  //     origen:"origen",
+  //     destino:"destino",
+  //     capacidad:40
+  //   },
+    
+  // ];
+
+  
+  buscar(){
+    let aux=this.flights;
+    this.flights=[];
+    aux.forEach(flight => {
+      if(flight.origen==this.bOrigen&&this.bDestino==flight.destino){
+        this.flights.push(flight);
+      }
+    });
+    console.log(this.flights);
+  }
 
 comprar(i){
   let cont=0;
@@ -59,9 +79,9 @@ comprar(i){
   if(carrito.length>0){
 
     carrito.forEach(element => {
-      console.log(f.id);
-      console.log(element.id);
-      if(f.id==element.id){
+      console.log(f.id_v);
+      console.log(element.id_v);
+      if(f.id_v==element.id_v){
         cont++;
       }
     });

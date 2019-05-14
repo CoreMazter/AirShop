@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-  URL ='';
+  URL ='/vuelos';
   info : any;
 
   constructor(private http: HttpClient) { }
