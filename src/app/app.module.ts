@@ -12,12 +12,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import {ConfirmComponent} from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CatalogoComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
