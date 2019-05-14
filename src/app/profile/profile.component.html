@@ -1,0 +1,9 @@
+<h1>Sus vuelos</h1>
+   <mat-card class="flight-card" *ngFor="let flight of flights">
+    <mat-card-actions>
+      <p>Vuelo: {{flight.vuelo}} </p>
+      <p>Aerolinea: {{flight.aerolinea}}</p>
+      <p>Ciudad de origen: {{flight.origen}}</p>
+      <p>Ciudad de destino: {{flight.destino}}</p>
+    </mat-card-actions>
+  </mat-card>
