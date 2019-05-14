@@ -6,7 +6,10 @@
       <h2>Destino: {{list.destino}}</h2>
       <h2>Aerolinea: {{list.aerolinea}}</h2>
       <h2>Capacidad: {{list.capacidad}}</h2>
+      <label>
+        <input type="number" min="1" max="{{list.capacidad}}" [(ngModel)]="list.boletos">
+      </label>
     </div>
   </mat-card-content>
 </mat-card>
-<button mat-stroked-button style="display:flex;justify-content:center">Confirmar compra</button>
+<button mat-stroked-button style="display:flex;justify-content:center" (click)="onSubmit()">Confirmar compra</button>
