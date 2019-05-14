@@ -12,12 +12,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CatalogoComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
     FormsModule,
     AppRoutingModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
