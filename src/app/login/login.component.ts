@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   regusername;
   showspinner=false;
   regpassword;
-  url;
+  url="http://192.168.84.200:6543";
   token;
   array = [];
   constructor(private http:HttpClient, private router:Router, private snackBar:MatSnackBar) {
@@ -26,8 +26,12 @@ export class LoginComponent implements OnInit {
   
   login(){
     this.showspinner=true;
-    this.http.get(this.url + '/ruta?user=' + this.logusername + '&pass=' + this.logpassword).subscribe(response=>{
+    let url=this.url + '/usuarios?nombre=' +''+ this.logusername +''+ '&pass=' +''+ this.logpassword+'';
+    this.http.get(url).subscribe(response=>{
       this.token=response;
+      localStorage.setItem("token",JSON.stringify(response));
+      this.router.navigate(["/catalogo"]);
+      console.log(response);
     },error=>{
       this.snackBar.open("Revisa tus credenciales");
       this.showspinner=false;
@@ -36,10 +40,14 @@ export class LoginComponent implements OnInit {
   }
   register(){
     this.showspinner=true;
-    this.http.post(this.url + '/ruta',{username:this.regusername,password:this.regpassword}).subscribe(response=>{
-
+    this.http.post(this.url + '/usuarios',{nombre:this.regusername,pass:this.regpassword}).subscribe(response=>{
+      this.snackBar.open("Registrado con exito");
+      this.showspinner=false;
+      this.logusername=this.regusername;
+      this.logpassword=this.regpassword;
+      this.login();
     },error=>{
-      this.snackBar.open("no se pudo crear usuario");
+      this.snackBar.open("no se pudo registrar");
       this.showspinner=false;
     });
   }
