@@ -12,11 +12,13 @@ export class CatalogoComponent implements OnInit {
   url="http://192.168.84.200:6543";
   flights:any;
 
-  constructor(private snackBar: MatSnackBar,private fly:HttpClient) { }
+
+  constructor(private snackBar: MatSnackBar,private fly:HttpClient) { 
+    this.fly.get(this.url+"/vuelos").subscribe(data=>{this.flights=data;console.log(this.flights)});
+    console.log(this.flights);
+  }
 
   ngOnInit() {
-    this.flights=this.fly.get(this.url+"/vuelos");
-    console.log(this.flights);
   }
 
   // flights:any[]=[
