@@ -2,8 +2,9 @@
   <h1>AirShop</h1>
   <div *ngIf="sesionIniciada == true; then iniciada else noIniciada"></div>
   <ng-template #iniciada>
-      <button  (click)="logOut()" mat-button>log out</button>
-      <button  routerLink="/profile" mat-button>perfil</button>
+      <button  (click)="logOut()" mat-button>Log out</button>
+      <button  routerLink="/profile" mat-button>Perfil</button>
+      <button  routerLink="/confirm" mat-button>Carrito</button>
   </ng-template>
 
   <ng-template #noIniciada>
