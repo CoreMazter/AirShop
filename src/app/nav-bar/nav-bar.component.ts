@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss']
+})
+export class NavBarComponent implements OnInit {
+  sesionIniciada=false;
+  
+  constructor() { }
+
+  ngOnInit() {
+    if(localStorage.getItem("token")){
+      this.sesionIniciada=true;
+    }
+  }
+
+  logOut(){
+    localStorage.removeItem("token");
+  }
+}
