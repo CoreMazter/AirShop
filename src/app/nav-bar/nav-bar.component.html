@@ -3,10 +3,11 @@
   <div *ngIf="sesionIniciada == true; then iniciada else noIniciada"></div>
   <ng-template #iniciada>
       <button  (click)="logOut()" mat-button>log out</button>
+      <button  routerLink="/profile" mat-button>perfil</button>
   </ng-template>
 
   <ng-template #noIniciada>
-      <button  routerLink="/profile" mat-button>perfil</button>
+      
   </ng-template>
   
 </mat-toolbar>

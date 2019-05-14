@@ -11,6 +11,8 @@ export class CatalogoComponent implements OnInit {
 
   url="http://192.168.84.200:6543";
   flights:any;
+  bOrigen;
+  bDestino;
 
 
   constructor(private snackBar: MatSnackBar,private fly:HttpClient) { 
@@ -53,6 +55,17 @@ export class CatalogoComponent implements OnInit {
     
   // ];
 
+  
+  buscar(){
+    let aux=this.flights;
+    this.flights=[];
+    aux.forEach(flight => {
+      if(flight.origen==this.bOrigen&&this.bDestino==flight.destino){
+        this.flights.push(flight);
+      }
+    });
+    console.log(this.flights);
+  }
 
 comprar(i){
   let cont=0;
