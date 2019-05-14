@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -13,6 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import {ConfirmComponent} from './confirm/confirm.component';
+
 
 @NgModule({
   declarations: [
